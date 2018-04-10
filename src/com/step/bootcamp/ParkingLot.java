@@ -2,7 +2,7 @@ package com.step.bootcamp;
 
 import java.util.HashMap;
 
-public class ParkingLot{
+public class ParkingLot implements Comparable{
   private final HashMap<Object, Vehicle> vehicles;
   private final int capacity;
 
@@ -40,5 +40,11 @@ public class ParkingLot{
 
   public boolean hasCar(Object token) {
     return vehicles.containsKey(token);
+  }
+
+  @Override
+  public int compareTo(Object o) {
+    ParkingLot other = (ParkingLot) o;
+    return Integer.compare(capacity, other.capacity);
   }
 }
