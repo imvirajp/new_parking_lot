@@ -34,8 +34,8 @@ public class ParkingLot{
     return vehicles.size() == capacity;
   }
 
-  public int compare(ParkingLot other) {
-    return Integer.compare(capacity, other.capacity);
+  public boolean isBigger(ParkingLot other) {
+    return capacity >= other.capacity;
   }
 
   public boolean hasCar(Object token) {

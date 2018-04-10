@@ -62,7 +62,7 @@ public class ParkingLotTest {
   }
 
   @Test(expected = CannotParkException.class)
-  public void shouldNotAddTheCarWhenItIsFull() throws CannotParkException {
+  public void shouldNotParkTheCarWhenItIsFull() throws CannotParkException {
     parkingLot.park(new Car());
     parkingLot.park(new Car());
     parkingLot.park(new Car());
@@ -70,7 +70,8 @@ public class ParkingLotTest {
 
   @Test
   public void shouldReturnDifferenceBetweenCapacity() {
-    assertEquals(parkingLot.compare(new ParkingLot(3)), -1);
-    assertEquals(parkingLot.compare(new ParkingLot(2)), 0);
+    assertTrue(parkingLot.isBigger(new ParkingLot(1)));
+    assertFalse(parkingLot.isBigger(new ParkingLot(3)));
+    assertTrue(parkingLot.isBigger(new ParkingLot(2)));
   }
 }

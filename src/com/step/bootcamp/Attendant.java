@@ -12,7 +12,7 @@ public class Attendant {
   public void add(ParkingLot parkingLot) {
     int index = parkingLots.size();
     for (ParkingLot lot : parkingLots) {
-     if(lot.compare(parkingLot) <= 0){
+     if(!lot.isBigger(parkingLot)){
        index = parkingLots.indexOf(lot);
        break;
      }
